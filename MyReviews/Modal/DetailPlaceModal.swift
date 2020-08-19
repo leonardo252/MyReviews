@@ -8,6 +8,7 @@
 //swiftlint:disable identifier_name
 
 import Foundation
+import UIKit
 
 struct DetailResult: Codable {
     let html_attributions: [String]
@@ -27,4 +28,16 @@ struct DetailPlace: Codable {
 struct OpenHours: Codable {
     let open_now: Bool
     let weekday_text: [String]
+}
+
+
+
+
+
+
+struct NewPlace {
+    let idPlace: String
+    let image: UIImage
+    let name: String
+    
 }

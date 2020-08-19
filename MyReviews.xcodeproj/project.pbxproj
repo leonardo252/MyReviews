@@ -14,6 +14,8 @@
 		73FBBF0124ED530F00F221A2 /* ToGoScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73FBBF0024ED530F00F221A2 /* ToGoScreen.storyboard */; };
 		73FBBF0324ED56B800F221A2 /* FindScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73FBBF0224ED56B800F221A2 /* FindScreen.storyboard */; };
 		73FBBF0524ED57B300F221A2 /* MyReviewsScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73FBBF0424ED57B300F221A2 /* MyReviewsScreen.storyboard */; };
+		73FBBF0724ED618400F221A2 /* ToGoScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FBBF0624ED618400F221A2 /* ToGoScreenController.swift */; };
+		73FBBF0924ED67DF00F221A2 /* ToGoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FBBF0824ED67DF00F221A2 /* ToGoCell.swift */; };
 		73FC1AAC24EB2E7700045920 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC1AAB24EB2E7700045920 /* ServiceLayer.swift */; };
 		73FC1AAE24EB314700045920 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC1AAD24EB314700045920 /* Router.swift */; };
 		A7E3E98E24EAB2D300104D4C /* NearbyPlaceModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E3E98D24EAB2D300104D4C /* NearbyPlaceModal.swift */; };
@@ -52,6 +54,8 @@
 		73FBBF0024ED530F00F221A2 /* ToGoScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ToGoScreen.storyboard; sourceTree = "<group>"; };
 		73FBBF0224ED56B800F221A2 /* FindScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindScreen.storyboard; sourceTree = "<group>"; };
 		73FBBF0424ED57B300F221A2 /* MyReviewsScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyReviewsScreen.storyboard; sourceTree = "<group>"; };
+		73FBBF0624ED618400F221A2 /* ToGoScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGoScreenController.swift; sourceTree = "<group>"; };
+		73FBBF0824ED67DF00F221A2 /* ToGoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToGoCell.swift; sourceTree = "<group>"; };
 		73FC1AAB24EB2E7700045920 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		73FC1AAD24EB314700045920 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A7E3E98D24EAB2D300104D4C /* NearbyPlaceModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlaceModal.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 				A7E896E424E58D3D0044CD4B /* Assets.xcassets */,
 				A7E896E924E58D3D0044CD4B /* Info.plist */,
 				7317284624E6B4DB00ABAD50 /* .swiftlint.yml */,
+				73FBBF0624ED618400F221A2 /* ToGoScreenController.swift */,
+				73FBBF0824ED67DF00F221A2 /* ToGoCell.swift */,
 			);
 			path = MyReviews;
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73FBBF0924ED67DF00F221A2 /* ToGoCell.swift in Sources */,
 				73FC1AAC24EB2E7700045920 /* ServiceLayer.swift in Sources */,
 				A7E896E024E58D390044CD4B /* ViewController.swift in Sources */,
 				73FBBEF824EB7B9500F221A2 /* HTTP.swift in Sources */,
@@ -346,6 +353,7 @@
 				73FBBEFC24EC079200F221A2 /* DetailPlaceModal.swift in Sources */,
 				A7E896DE24E58D390044CD4B /* SceneDelegate.swift in Sources */,
 				73FBBEFA24EB8C6A00F221A2 /* TextPlaceModal.swift in Sources */,
+				73FBBF0724ED618400F221A2 /* ToGoScreenController.swift in Sources */,
 				A7E3E98E24EAB2D300104D4C /* NearbyPlaceModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
