@@ -1,27 +1,31 @@
 //
-//  ToGoScreenController.swift
+//  MyReviewsController.swift
 //  MyReviews
 //
-//  Created by Leonardo Gomes Fernandes on 19/08/20.
+//  Created by Leonardo Gomes on 23/08/20.
 //  Copyright © 2020 Leonardo Gomes. All rights reserved.
 //
 
 import UIKit
 
-class ToGoScreenController: UIViewController {
-
+class MyReviewsController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
     
     var places: [NewPlace] = []
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        places = populateArray()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.barStyle = .black
-        view.backgroundColor = .black
         
+        places = populateArray()
+        navigationController?.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = .black
+        tableView.backgroundColor = .black
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        print(places)
     }
     
     func populateArray() -> [NewPlace] {
@@ -45,10 +49,10 @@ class ToGoScreenController: UIViewController {
         
         return tempPlaces
     }
-
+    
 }
 
-extension ToGoScreenController: UITableViewDataSource, UITableViewDelegate {
+extension MyReviewsController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return places.count
     }
@@ -56,10 +60,11 @@ extension ToGoScreenController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let place = places[indexPath.row]
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "toGoCell") as? ToGoCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell") as? ReviewCell else { return UITableViewCell() }
+        
         cell.setPlace(place: place)
         cell.backgroundColor = .black
-        return cell
+        return cell        
     }
     
     
