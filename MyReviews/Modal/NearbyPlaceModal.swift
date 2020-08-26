@@ -18,4 +18,5 @@ struct NearbyResults: Codable {
 struct NearbyPlace: Codable {
     let place_id: String
     let name: String
+    let vicinity: String
 }

@@ -11,18 +11,25 @@ import CoreLocation
 
 class FindScreenController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
+    
     @IBOutlet var tableView: UITableView!
     
     var resultSearchController = UISearchController()
     
     var places: [NewPlace] = []
     
-    var filteredTableData = [NewPlace]()
+    var filteredTableData = [NewPlace]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        places = populateArray()
+//        places = populateArray()
         
         navigationController?.navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.barStyle = .black
@@ -45,78 +52,72 @@ class FindScreenController: UIViewController, UISearchResultsUpdating, UISearchB
         })()
         
         resultSearchController.searchBar.delegate = self
-        resultSearchController.searchBar.searchTextField.backgroundColor = .black
+//        resultSearchController.searchBar.searchTextField.backgroundColor = .black
+        resultSearchController.searchBar.barStyle = .black
         resultSearchController.searchBar.barTintColor = .black
         resultSearchController.searchBar.backgroundColor = .black
         resultSearchController.searchBar.searchTextField.textColor = UIColor(named: "YellowDark")
+//        resultSearchController.obscuresBackgroundDuringPresentation = false
         
         // Reload the table
         tableView.reloadData()
     }
     
-    func populateArray() -> [NewPlace] {
-           
-           var tempPlaces: [NewPlace] = []
-           let place1 = NewPlace(idPlace: "place1", image: UIImage(imageLiteralResourceName: "Place1"), name: "Local 1")
-           let place2 = NewPlace(idPlace: "place2", image: UIImage(imageLiteralResourceName: "Place2"), name: "Local 2")
-           let place3 = NewPlace(idPlace: "place3", image: UIImage(imageLiteralResourceName: "Place3"), name: "Local 3")
-           let place4 = NewPlace(idPlace: "place4", image: UIImage(imageLiteralResourceName: "Place4"), name: "Local 4")
-           let place5 = NewPlace(idPlace: "place5", image: UIImage(imageLiteralResourceName: "Place5"), name: "Local 5")
-           let place6 = NewPlace(idPlace: "place6", image: UIImage(imageLiteralResourceName: "Place6"), name: "Local 6")
-           let place7 = NewPlace(idPlace: "place7", image: UIImage(imageLiteralResourceName: "Place7"), name: "Local 7")
-           
-           tempPlaces.append(place1)
-           tempPlaces.append(place2)
-           tempPlaces.append(place3)
-           tempPlaces.append(place4)
-           tempPlaces.append(place5)
-           tempPlaces.append(place6)
-           tempPlaces.append(place7)
-           
-           return tempPlaces
-       }
-    
     func updateSearchResults(for searchController: UISearchController) {
-        filteredTableData.removeAll(keepingCapacity: false)
-
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
-        print(searchPredicate.predicateFormat)
-        places.forEach({ place in
-            if place.name == searchController.searchBar.text! {
-                print(place)
-                filteredTableData.append(place)
-            }
-        })
+//        filteredTableData.removeAll(keepingCapacity: false)
+//
+//        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
+//        print(searchPredicate.predicateFormat)
+//        places.forEach({ place in
+//            if place.name == searchController.searchBar.text! {
+//                print(place)
+//                filteredTableData.append(place)
+//            }
+//        })
+//        self.tableView.reloadData()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        guard var textSearchBar = resultSearchController.searchBar.text else { return }
+        textSearchBar = textSearchBar.replacingOccurrences(of: " ", with: "%20")
+        Service.shared.findPlaceNearby(keyWord: textSearchBar, latitude: "-3.775836", longitude: "-38.573364") { (places) in
+            places?.forEach({ nearbyPlace in
+                let place = NewPlace(idPlace: nearbyPlace.place_id, image: UIImage(imageLiteralResourceName: "Place4"), name: nearbyPlace.name, location: nearbyPlace.vicinity)
+                self.filteredTableData.append(place)
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+            
+        }
         
-//        filteredTableData = array as! [String]
-
-        self.tableView.reloadData()
     }
     
 }
 
 extension FindScreenController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if resultSearchController.isActive {
-            return filteredTableData.count
-        } else {
-            return places.count
-        }
+        return filteredTableData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var place: NewPlace
-        if resultSearchController.isActive {
-            place = filteredTableData[indexPath.row]
-        } else {
-            place = places[indexPath.row]
-        }
+        let place = filteredTableData[indexPath.row]
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "findCell") as? FindCell else { return UITableViewCell() }
         cell.setPlace(place: place)
         cell.backgroundColor = .black
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DetailPlaceFindController {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                destination.place = filteredTableData[indexPath.row]
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+            
+        }
     }
 }

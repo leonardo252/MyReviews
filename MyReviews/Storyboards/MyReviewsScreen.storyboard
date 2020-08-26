@@ -68,8 +68,8 @@
                                                                 <constraint firstAttribute="height" constant="58" id="as1-qj-TdA"/>
                                                                 <constraint firstAttribute="width" secondItem="qO8-LU-FIG" secondAttribute="height" multiplier="59:58" id="fw3-mf-SXO"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -100,6 +100,7 @@
                                         <connections>
                                             <outlet property="placeImageView" destination="up0-Yt-vMd" id="yFt-AJ-QjJ"/>
                                             <outlet property="placeNameLabel" destination="qO8-LU-FIG" id="jX1-yx-22J"/>
+                                            <segue destination="Qkt-4T-bLW" kind="show" id="Niv-Ly-DeU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -123,7 +124,40 @@
             </objects>
             <point key="canvasLocation" x="1597.5999999999999" y="125.4872563718141"/>
         </scene>
+        <!--Detail Place Reviews Controller-->
+        <scene sceneID="QhQ-Bb-HfO">
+            <objects>
+                <viewController id="Qkt-4T-bLW" customClass="DetailPlaceReviewsController" customModule="MyReviews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wXH-Bf-CHs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxe-OJ-dPX">
+                                <rect key="frame" x="12" y="315.5" width="351" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jxe-OJ-dPX" firstAttribute="leading" secondItem="46h-7j-drw" secondAttribute="leading" constant="12" id="2Cg-rw-QTh"/>
+                            <constraint firstItem="jxe-OJ-dPX" firstAttribute="centerY" secondItem="wXH-Bf-CHs" secondAttribute="centerY" id="W30-ML-kLL"/>
+                            <constraint firstItem="46h-7j-drw" firstAttribute="trailing" secondItem="jxe-OJ-dPX" secondAttribute="trailing" constant="12" id="YEO-49-HQh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="46h-7j-drw"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pWv-mC-bpd"/>
+                    <connections>
+                        <outlet property="placeNameLabel" destination="jxe-OJ-dPX" id="U20-Pu-Ntl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wVf-il-Oa2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2430" y="125"/>
+        </scene>
     </scenes>
+    <color key="tintColor" name="YellowDark"/>
     <resources>
         <image name="person" catalog="system" width="128" height="117"/>
         <namedColor name="YellowDark">

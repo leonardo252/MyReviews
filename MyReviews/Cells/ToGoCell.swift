@@ -12,9 +12,11 @@ class ToGoCell: UITableViewCell {
 
     @IBOutlet weak var locationImageView: UIImageView!
     @IBOutlet weak var placeNameLabel: UILabel!
+    @IBOutlet weak var placeLocationLabel: UILabel!
     
     func setPlace(place: NewPlace) {
         locationImageView.image = place.image
         placeNameLabel.text = place.name
+        placeLocationLabel.text = place.location
     }
 }

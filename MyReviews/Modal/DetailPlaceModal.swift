@@ -39,5 +39,6 @@ struct NewPlace {
     let idPlace: String
     let image: UIImage
     let name: String
+    let location: String
     
 }

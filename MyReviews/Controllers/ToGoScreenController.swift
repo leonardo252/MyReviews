@@ -31,13 +31,13 @@ class ToGoScreenController: UIViewController {
     func populateArray() -> [NewPlace] {
         
         var tempPlaces: [NewPlace] = []
-        let place1 = NewPlace(idPlace: "place1", image: UIImage(imageLiteralResourceName: "Place1"), name: "Local 1")
-        let place2 = NewPlace(idPlace: "place2", image: UIImage(imageLiteralResourceName: "Place2"), name: "Local 2")
-        let place3 = NewPlace(idPlace: "place3", image: UIImage(imageLiteralResourceName: "Place3"), name: "Local 3")
-        let place4 = NewPlace(idPlace: "place4", image: UIImage(imageLiteralResourceName: "Place4"), name: "Local 4")
-        let place5 = NewPlace(idPlace: "place5", image: UIImage(imageLiteralResourceName: "Place5"), name: "Local 5")
-        let place6 = NewPlace(idPlace: "place6", image: UIImage(imageLiteralResourceName: "Place6"), name: "Local 6")
-        let place7 = NewPlace(idPlace: "place7", image: UIImage(imageLiteralResourceName: "Place7"), name: "Local 7")
+        let place1 = NewPlace(idPlace: "place1", image: UIImage(imageLiteralResourceName: "Place1"), name: "Local 1", location: "Londres")
+        let place2 = NewPlace(idPlace: "place2", image: UIImage(imageLiteralResourceName: "Place2"), name: "Local 2", location: "Argentina")
+        let place3 = NewPlace(idPlace: "place3", image: UIImage(imageLiteralResourceName: "Place3"), name: "Local 3", location: "Irlanda")
+        let place4 = NewPlace(idPlace: "place4", image: UIImage(imageLiteralResourceName: "Place4"), name: "Local 4", location: "Suiça")
+        let place5 = NewPlace(idPlace: "place5", image: UIImage(imageLiteralResourceName: "Place5"), name: "Local 5", location: "Noruega")
+        let place6 = NewPlace(idPlace: "place6", image: UIImage(imageLiteralResourceName: "Place6"), name: "Local 6", location: "Roma")
+        let place7 = NewPlace(idPlace: "place7", image: UIImage(imageLiteralResourceName: "Place7"), name: "Local 7", location: "Alasca")
         
         tempPlaces.append(place1)
         tempPlaces.append(place2)
@@ -64,6 +64,16 @@ extension ToGoScreenController: UITableViewDataSource, UITableViewDelegate {
         cell.setPlace(place: place)
         cell.backgroundColor = .black
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DetailPlaceToGoController {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                destination.place = places[indexPath.row]
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+            
+        }
     }
     
     

@@ -72,7 +72,7 @@
                                                                 <constraint firstAttribute="width" secondItem="N1D-5r-j1b" secondAttribute="height" multiplier="143:50" id="NsC-gk-IDg"/>
                                                                 <constraint firstAttribute="height" constant="50" id="RMp-6L-Dmw"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -108,6 +108,7 @@
                                         <connections>
                                             <outlet property="placeImageView" destination="8py-nL-LkT" id="AmC-uf-1yr"/>
                                             <outlet property="placeNameLabel" destination="N1D-5r-j1b" id="LKL-5F-yit"/>
+                                            <segue destination="bQ0-o3-E16" kind="show" id="Llt-zX-y7Z"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -135,7 +136,59 @@
             </objects>
             <point key="canvasLocation" x="997.60000000000002" y="590.55472263868069"/>
         </scene>
+        <!--Detail Place Find Controller-->
+        <scene sceneID="tUn-DE-5Fl">
+            <objects>
+                <viewController id="bQ0-o3-E16" customClass="DetailPlaceFindController" customModule="MyReviews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7LZ-XQ-xkY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpm-Ec-8bM">
+                                <rect key="frame" x="12" y="320.5" width="351" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" name="YellowYellow"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxQ-HT-afQ">
+                                <rect key="frame" x="12" y="382" width="351" height="121"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="YellowYellow"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHJ-4h-MD7">
+                                <rect key="frame" x="148.5" y="520" width="78" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eWW-dy-qsD"/>
+                                    <constraint firstAttribute="width" secondItem="nHJ-4h-MD7" secondAttribute="height" multiplier="39:25" id="vKx-El-Bd6"/>
+                                </constraints>
+                                <state key="normal" title="Add ToGo"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qpm-Ec-8bM" firstAttribute="leading" secondItem="2cO-93-MBF" secondAttribute="leading" constant="12" id="4a5-J1-G7g"/>
+                            <constraint firstItem="2cO-93-MBF" firstAttribute="trailing" secondItem="qpm-Ec-8bM" secondAttribute="trailing" constant="12" id="7Mr-Qw-Ch0"/>
+                            <constraint firstItem="qpm-Ec-8bM" firstAttribute="centerY" secondItem="7LZ-XQ-xkY" secondAttribute="centerY" id="ArX-hA-yEM"/>
+                            <constraint firstItem="2cO-93-MBF" firstAttribute="bottom" secondItem="nHJ-4h-MD7" secondAttribute="bottom" constant="48" id="WOF-QB-eOw"/>
+                            <constraint firstItem="nHJ-4h-MD7" firstAttribute="centerX" secondItem="7LZ-XQ-xkY" secondAttribute="centerX" id="WqH-Ez-dJT"/>
+                            <constraint firstItem="qpm-Ec-8bM" firstAttribute="centerX" secondItem="7LZ-XQ-xkY" secondAttribute="centerX" id="sKd-UR-oja"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2cO-93-MBF"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="g2g-Ui-wEb"/>
+                    <connections>
+                        <outlet property="placeLocationLabel" destination="gxQ-HT-afQ" id="Y9a-LA-ygY"/>
+                        <outlet property="placeNameLabel" destination="qpm-Ec-8bM" id="bkM-EN-kKt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7AF-ml-Sl0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1880.8" y="590.55472263868069"/>
+        </scene>
     </scenes>
+    <color key="tintColor" name="YellowDark"/>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <namedColor name="YellowDark">
