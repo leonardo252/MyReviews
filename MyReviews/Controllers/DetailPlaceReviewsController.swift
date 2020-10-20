@@ -12,7 +12,7 @@ class DetailPlaceReviewsController: UIViewController {
 
     @IBOutlet weak var placeNameLabel: UILabel!
     
-    var place: NewPlace?
+    var place: Place?
     
     override func viewDidLoad() {
         super.viewDidLoad()

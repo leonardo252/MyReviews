@@ -16,9 +16,9 @@ class FindScreenController: UIViewController, UISearchResultsUpdating, UISearchB
     
     var resultSearchController = UISearchController()
     
-    var places: [NewPlace] = []
+    var places: [Place] = []
     
-    var filteredTableData = [NewPlace]() {
+    var filteredTableData = [Place]() {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -30,7 +30,8 @@ class FindScreenController: UIViewController, UISearchResultsUpdating, UISearchB
         super.viewDidLoad()
 
 //        places = populateArray()
-        
+        places = []
+        tableView.reloadData()
         navigationController?.navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.barStyle = .black
         view.backgroundColor = .black
@@ -61,6 +62,14 @@ class FindScreenController: UIViewController, UISearchResultsUpdating, UISearchB
         
         // Reload the table
         tableView.reloadData()
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        places = []
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -77,23 +86,23 @@ class FindScreenController: UIViewController, UISearchResultsUpdating, UISearchB
 //        self.tableView.reloadData()
     }
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {        
         guard var textSearchBar = resultSearchController.searchBar.text else { return }
         textSearchBar = textSearchBar.replacingOccurrences(of: " ", with: "%20")
         Service.shared.findPlaceNearby(keyWord: textSearchBar, latitude: "-3.775836", longitude: "-38.573364") { (places) in
             places?.forEach({ nearbyPlace in
-                let place = NewPlace(idPlace: nearbyPlace.place_id, image: UIImage(imageLiteralResourceName: "Place4"), name: nearbyPlace.name, location: nearbyPlace.vicinity)
+                let place = Place()
+                place.idItem = nearbyPlace.place_id
+                place.name = nearbyPlace.name
+                place.address = nearbyPlace.vicinity
                 self.filteredTableData.append(place)
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             })
-            
         }
-        
     }
-    
 }
 
 extension FindScreenController: UITableViewDelegate, UITableViewDataSource {

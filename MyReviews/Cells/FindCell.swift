@@ -13,8 +13,8 @@ class FindCell: UITableViewCell {
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var placeNameLabel: UILabel!
     
-    func setPlace(place: NewPlace) {
-        placeImageView.image = place.image
+    func setPlace(place: Place) {
+        placeImageView.image = UIImage(named: "Place1")
         placeNameLabel.text = place.name
     }
 }

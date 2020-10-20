@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9yx-nf-NFd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9yx-nf-NFd">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,7 +44,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-xb-7q0">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="findCell" rowHeight="160" id="rLi-A5-fFU" customClass="FindCell" customModule="MyReviews" customModuleProvider="target">
@@ -118,6 +120,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="FXu-Ih-g8a"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UAU-xb-7q0" firstAttribute="leading" secondItem="FXu-Ih-g8a" secondAttribute="leading" id="3Ps-hK-pBu"/>
@@ -125,7 +128,6 @@
                             <constraint firstItem="FXu-Ih-g8a" firstAttribute="bottom" secondItem="UAU-xb-7q0" secondAttribute="bottom" id="kzZ-hu-Pg9"/>
                             <constraint firstItem="FXu-Ih-g8a" firstAttribute="trailing" secondItem="UAU-xb-7q0" secondAttribute="trailing" id="mJj-oc-BvR"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="FXu-Ih-g8a"/>
                     </view>
                     <navigationItem key="navigationItem" title="Find" id="b0k-eP-qNN"/>
                     <connections>
@@ -157,16 +159,20 @@
                                 <color key="textColor" name="YellowYellow"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHJ-4h-MD7">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHJ-4h-MD7">
                                 <rect key="frame" x="148.5" y="520" width="78" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="eWW-dy-qsD"/>
                                     <constraint firstAttribute="width" secondItem="nHJ-4h-MD7" secondAttribute="height" multiplier="39:25" id="vKx-El-Bd6"/>
                                 </constraints>
                                 <state key="normal" title="Add ToGo"/>
+                                <connections>
+                                    <action selector="addToGoButton:" destination="bQ0-o3-E16" eventType="touchUpInside" id="Cd9-nG-UUp"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="2cO-93-MBF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qpm-Ec-8bM" firstAttribute="leading" secondItem="2cO-93-MBF" secondAttribute="leading" constant="12" id="4a5-J1-G7g"/>
                             <constraint firstItem="2cO-93-MBF" firstAttribute="trailing" secondItem="qpm-Ec-8bM" secondAttribute="trailing" constant="12" id="7Mr-Qw-Ch0"/>
@@ -175,7 +181,6 @@
                             <constraint firstItem="nHJ-4h-MD7" firstAttribute="centerX" secondItem="7LZ-XQ-xkY" secondAttribute="centerX" id="WqH-Ez-dJT"/>
                             <constraint firstItem="qpm-Ec-8bM" firstAttribute="centerX" secondItem="7LZ-XQ-xkY" secondAttribute="centerX" id="sKd-UR-oja"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="2cO-93-MBF"/>
                     </view>
                     <navigationItem key="navigationItem" id="g2g-Ui-wEb"/>
                     <connections>
@@ -197,5 +202,8 @@
         <namedColor name="YellowYellow">
             <color red="0.94901960784313721" green="0.8901960784313725" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -14,7 +14,7 @@ class DetailPlaceToGoController: UIViewController {
     @IBOutlet weak var placeLocationLabel: UILabel!
     @IBOutlet weak var placeImageView: UIImageView!
     
-    var place: NewPlace?
+    var place: Place?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,8 @@ class DetailPlaceToGoController: UIViewController {
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         placeNameLabel.text = place?.name
-        placeLocationLabel.text = place?.location
-        placeImageView.image = place?.image
+        placeLocationLabel.text = place?.address
+        placeImageView.image = UIImage(named: "Place2")
         
     }
     

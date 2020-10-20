@@ -13,20 +13,33 @@ class DetailPlaceFindController: UIViewController {
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var placeLocationLabel: UILabel!
     
-    var place: NewPlace?
+    private var placeRepository = PlacesRepository()
+    
+    var place: Place?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .black
         navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(addTapped))
         placeNameLabel.text = place?.name
-        placeLocationLabel.text = place?.location
+        placeLocationLabel.text = place?.address
         
     }
     
-    @objc func addTapped() {
-        print("Added")
+    @IBAction func addToGoButton(_ sender: Any) {
+        print("added")
+        
+        guard let place = self.place else { return }
+        
+        
+//        FileManager.default.printContent(from: NSHomeDirectory(), recursivelly: true)
+        print("###################################################################################")
+        placeRepository.createNewItem(newItem: place)
+        
+//        FileManager.default.printContent(from: NSHomeDirectory(), recursivelly: true)
+
+         
     }
+    
 }

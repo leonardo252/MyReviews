@@ -14,9 +14,9 @@ class ToGoCell: UITableViewCell {
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var placeLocationLabel: UILabel!
     
-    func setPlace(place: NewPlace) {
-        locationImageView.image = place.image
+    func setPlace(place: Place) {
+        locationImageView.image = UIImage(named: "Place1")
         placeNameLabel.text = place.name
-        placeLocationLabel.text = place.location
+        placeLocationLabel.text = place.address
     }
 }
