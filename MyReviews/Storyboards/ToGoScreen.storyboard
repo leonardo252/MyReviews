@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b2Q-Yo-JYo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b2Q-Yo-JYo">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,7 +44,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="av2-fK-Pxb">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="toGoCell" rowHeight="348" id="9KX-rG-7cK" customClass="ToGoCell" customModule="MyReviews" customModuleProvider="target">
@@ -132,7 +134,8 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="H9n-wc-7VV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="av2-fK-Pxb" firstAttribute="top" secondItem="H9n-wc-7VV" secondAttribute="top" id="9Vj-Gr-QXW"/>
                             <constraint firstItem="av2-fK-Pxb" firstAttribute="trailing" secondItem="H9n-wc-7VV" secondAttribute="trailing" id="GmP-Qa-hhR"/>
@@ -140,7 +143,6 @@
                             <constraint firstItem="av2-fK-Pxb" firstAttribute="centerX" secondItem="HoF-FB-tPq" secondAttribute="centerX" id="bG4-cb-AyF"/>
                             <constraint firstItem="av2-fK-Pxb" firstAttribute="bottom" secondItem="H9n-wc-7VV" secondAttribute="bottom" id="rNO-kv-28C"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="H9n-wc-7VV"/>
                     </view>
                     <navigationItem key="navigationItem" title="To Go" id="cxz-2K-dxG"/>
                     <connections>
@@ -181,21 +183,33 @@
                                 <color key="textColor" name="YellowDark"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t38-lo-GYW">
+                                <rect key="frame" x="165" y="537" width="45" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" systemColor="systemPinkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="deletePlace:" destination="qLN-bp-CNE" eventType="touchUpInside" id="J90-Uh-HlC"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="dmF-C9-xDG"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dmF-C9-xDG" firstAttribute="trailing" secondItem="t38-lo-GYW" secondAttribute="trailing" constant="165" id="BcM-j8-Iih"/>
                             <constraint firstItem="dmF-C9-xDG" firstAttribute="trailing" secondItem="3ht-uE-y1L" secondAttribute="trailing" constant="12" id="CVG-1x-VNb"/>
                             <constraint firstItem="CDx-w9-mvm" firstAttribute="centerX" secondItem="ku0-lr-08d" secondAttribute="centerX" id="E2Z-rW-A8W"/>
                             <constraint firstItem="3ht-uE-y1L" firstAttribute="leading" secondItem="dmF-C9-xDG" secondAttribute="leading" constant="12" id="JOx-wP-Yx3"/>
+                            <constraint firstItem="dmF-C9-xDG" firstAttribute="bottom" secondItem="t38-lo-GYW" secondAttribute="bottom" constant="51" id="Kum-yv-U3f"/>
                             <constraint firstItem="cGr-lk-i09" firstAttribute="top" secondItem="3ht-uE-y1L" secondAttribute="bottom" constant="69.5" id="RpW-Fd-EAl"/>
                             <constraint firstItem="3ht-uE-y1L" firstAttribute="centerX" secondItem="ku0-lr-08d" secondAttribute="centerX" id="U4Z-Bm-gwW"/>
+                            <constraint firstItem="t38-lo-GYW" firstAttribute="leading" secondItem="dmF-C9-xDG" secondAttribute="leading" constant="165" id="bVm-CJ-Vry"/>
                             <constraint firstItem="cGr-lk-i09" firstAttribute="leading" secondItem="dmF-C9-xDG" secondAttribute="leading" constant="12" id="bpT-XB-Dkf"/>
                             <constraint firstItem="cGr-lk-i09" firstAttribute="centerX" secondItem="ku0-lr-08d" secondAttribute="centerX" id="dJs-Xs-UKd"/>
                             <constraint firstItem="CDx-w9-mvm" firstAttribute="top" secondItem="dmF-C9-xDG" secondAttribute="top" constant="12" id="fsC-ef-I9c"/>
                             <constraint firstItem="3ht-uE-y1L" firstAttribute="top" secondItem="dmF-C9-xDG" secondAttribute="top" constant="264" id="rEU-uZ-eIG"/>
                             <constraint firstItem="dmF-C9-xDG" firstAttribute="trailing" secondItem="cGr-lk-i09" secondAttribute="trailing" constant="12" id="v6z-pU-WuV"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="dmF-C9-xDG"/>
                     </view>
                     <navigationItem key="navigationItem" id="yie-z2-Av9"/>
                     <connections>
@@ -211,12 +225,18 @@
     </scenes>
     <color key="tintColor" name="YellowDark"/>
     <resources>
-        <image name="location" catalog="system" width="128" height="115"/>
+        <image name="location" catalog="system" width="128" height="121"/>
         <namedColor name="YellowDark">
             <color red="0.93333333333333335" green="0.69019607843137254" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="YellowYellow">
             <color red="0.94901960784313721" green="0.8901960784313725" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

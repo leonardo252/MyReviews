@@ -8,16 +8,19 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 class FindScreenController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
+//    var container: NSPersistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+    var container: NSPersistentContainer = NSPersistentContainer(name: "StoryFind")
     
     @IBOutlet var tableView: UITableView!
     
     var resultSearchController = UISearchController()
     
-    var places: [Place] = []
-    
+//    var places: [Place] = []
+//
     var filteredTableData = [Place]() {
         didSet {
             DispatchQueue.main.async {
@@ -30,7 +33,7 @@ class FindScreenController: UIViewController, UISearchResultsUpdating, UISearchB
         super.viewDidLoad()
 
 //        places = populateArray()
-        places = []
+//        places = []
         tableView.reloadData()
         navigationController?.navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.barStyle = .black
@@ -69,7 +72,7 @@ class FindScreenController: UIViewController, UISearchResultsUpdating, UISearchB
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        places = []
+//        filteredTableData = []
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -86,15 +89,17 @@ class FindScreenController: UIViewController, UISearchResultsUpdating, UISearchB
 //        self.tableView.reloadData()
     }
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {        
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        filteredTableData = []
         guard var textSearchBar = resultSearchController.searchBar.text else { return }
         textSearchBar = textSearchBar.replacingOccurrences(of: " ", with: "%20")
         Service.shared.findPlaceNearby(keyWord: textSearchBar, latitude: "-3.775836", longitude: "-38.573364") { (places) in
             places?.forEach({ nearbyPlace in
-                let place = Place()
+                let place = Place(context: self.container.viewContext)
                 place.idItem = nearbyPlace.place_id
                 place.name = nearbyPlace.name
                 place.address = nearbyPlace.vicinity
+                print(place.idItem!)
                 self.filteredTableData.append(place)
                 
                 DispatchQueue.main.async {

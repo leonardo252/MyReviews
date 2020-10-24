@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PlacesRepository: Repository {
-    typealias Item = Place
-    var items: [Place] = []
-}
+//class PlacesRepository: Repository {
+//    typealias Item = Place
+//    var items: [Place] = []
+//}

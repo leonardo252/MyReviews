@@ -5,22 +5,20 @@
 //  Created by Leonardo Gomes Fernandes on 19/08/20.
 //  Copyright © 2020 Leonardo Gomes. All rights reserved.
 //
-
+//swiftlint:disable force_cast
 import UIKit
+import CoreData
 
 class ToGoScreenController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var placeRepository = PlacesRepository()
+//    private var placeRepository = PlacesRepository()
+    var container: NSPersistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     
-    var places: [Place] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
+//    var container: NSPersistentContainer!
+    
+    var places: [Place] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +37,18 @@ class ToGoScreenController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        
-        places = placeRepository.readAllItems()
+        do {
+            let request = Place.fetchRequest() as NSFetchRequest<Place>
+            
+            places = try container.viewContext.fetch(request)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        } catch {
+            
+        }
     }
-
+    
 }
 
 extension ToGoScreenController: UITableViewDataSource, UITableViewDelegate {
@@ -61,6 +67,7 @@ extension ToGoScreenController: UITableViewDataSource, UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetailPlaceToGoController {
+            destination.container = self.container
             if let indexPath = tableView.indexPathForSelectedRow {
                 destination.place = places[indexPath.row]
                 tableView.deselectRow(at: indexPath, animated: true)
