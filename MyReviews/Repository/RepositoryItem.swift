@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RepositoryItem: class, Codable {
-    var idItem: String { get set }
-    init()
-}
+//protocol RepositoryItem: class, Codable {
+//    var idItem: String { get set }
+//    init()
+//}

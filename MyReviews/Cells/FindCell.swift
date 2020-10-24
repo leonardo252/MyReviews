@@ -15,6 +15,6 @@ class FindCell: UITableViewCell {
     
     func setPlace(place: Place) {
         placeImageView.image = UIImage(named: "Place1")
-        placeNameLabel.text = place.name
+        placeNameLabel.text = place.name!
     }
 }

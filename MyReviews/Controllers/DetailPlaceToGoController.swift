@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailPlaceToGoController: UIViewController {
 
@@ -14,6 +15,7 @@ class DetailPlaceToGoController: UIViewController {
     @IBOutlet weak var placeLocationLabel: UILabel!
     @IBOutlet weak var placeImageView: UIImageView!
     
+    var container: NSPersistentContainer!
     var place: Place?
     
     override func viewDidLoad() {
@@ -28,7 +30,17 @@ class DetailPlaceToGoController: UIViewController {
         
     }
     
-    @objc func addTapped() {
-        print("Buton Tapped")
+    @IBAction func deletePlace(_ sender: Any) {
+        if let placeToDelete = place {
+            container.viewContext.delete(placeToDelete)
+            
+            do {
+                try self.container.viewContext.save()
+            } catch {
+                
+            }
+        }
+        
+        
     }
 }

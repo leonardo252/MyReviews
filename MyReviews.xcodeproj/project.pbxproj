@@ -22,6 +22,9 @@
 		73FC1AAC24EB2E7700045920 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC1AAB24EB2E7700045920 /* ServiceLayer.swift */; };
 		73FC1AAE24EB314700045920 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC1AAD24EB314700045920 /* Router.swift */; };
 		A70AE99824EECDE800F8EFB9 /* FindScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70AE99724EECDE800F8EFB9 /* FindScreenController.swift */; };
+		A73D0F27253F3CEE0098A631 /* Place+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73D0F25253F3CEE0098A631 /* Place+CoreDataClass.swift */; };
+		A73D0F28253F3CEE0098A631 /* Place+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73D0F26253F3CEE0098A631 /* Place+CoreDataProperties.swift */; };
+		A753EEA3253F2E8C005264E6 /* ModelPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A753EEA1253F2E8C005264E6 /* ModelPlaces.xcdatamodeld */; };
 		A75D0EED24F7F5EA0009F00A /* RepositoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D0EEC24F7F5EA0009F00A /* RepositoryItem.swift */; };
 		A75D0EEF24F7F6EF0009F00A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D0EEE24F7F6EF0009F00A /* Repository.swift */; };
 		A75D0EF124F7F76A0009F00A /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D0EF024F7F76A0009F00A /* FileHelper.swift */; };
@@ -75,6 +78,9 @@
 		73FC1AAB24EB2E7700045920 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		73FC1AAD24EB314700045920 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A70AE99724EECDE800F8EFB9 /* FindScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindScreenController.swift; sourceTree = "<group>"; };
+		A73D0F25253F3CEE0098A631 /* Place+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A73D0F26253F3CEE0098A631 /* Place+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A753EEA2253F2E8C005264E6 /* ModelPlaces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelPlaces.xcdatamodel; sourceTree = "<group>"; };
 		A75D0EEC24F7F5EA0009F00A /* RepositoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryItem.swift; sourceTree = "<group>"; };
 		A75D0EEE24F7F6EF0009F00A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		A75D0EF024F7F76A0009F00A /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
@@ -190,6 +196,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		A753EEAE253F33E3005264E6 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				A73D0F25253F3CEE0098A631 /* Place+CoreDataClass.swift */,
+				A73D0F26253F3CEE0098A631 /* Place+CoreDataProperties.swift */,
+			);
+			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
 		A7E896CF24E58D390044CD4B = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +228,7 @@
 		A7E896DA24E58D390044CD4B /* MyReviews */ = {
 			isa = PBXGroup;
 			children = (
+				A753EEAE253F33E3005264E6 /* CoreDataModel */,
 				731DC4BE24F38B3300B99DC0 /* Manager */,
 				731DC4B524F3882F00B99DC0 /* Repository */,
 				A7F1A12424EFF87200AB4ED9 /* Cells */,
@@ -227,6 +243,7 @@
 				A7E896E924E58D3D0044CD4B /* Info.plist */,
 				7317284624E6B4DB00ABAD50 /* .swiftlint.yml */,
 				A75D0EF624F802890009F00A /* FileManegerExtension.swift */,
+				A753EEA1253F2E8C005264E6 /* ModelPlaces.xcdatamodeld */,
 			);
 			path = MyReviews;
 			sourceTree = "<group>";
@@ -323,7 +340,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Leonardo Gomes";
 				TargetAttributes = {
 					A7E896D724E58D390044CD4B = {
@@ -424,9 +441,11 @@
 				A7A568FA24F2B65D0092E743 /* MyReviewsController.swift in Sources */,
 				A75D0EF124F7F76A0009F00A /* FileHelper.swift in Sources */,
 				73FC1AAC24EB2E7700045920 /* ServiceLayer.swift in Sources */,
+				A753EEA3253F2E8C005264E6 /* ModelPlaces.xcdatamodeld in Sources */,
 				A7E896E024E58D390044CD4B /* ViewController.swift in Sources */,
 				A75D0EEF24F7F6EF0009F00A /* Repository.swift in Sources */,
 				731DC4B224F36E9D00B99DC0 /* DetailPlaceReviewsController.swift in Sources */,
+				A73D0F27253F3CEE0098A631 /* Place+CoreDataClass.swift in Sources */,
 				73FBBEF824EB7B9500F221A2 /* HTTP.swift in Sources */,
 				73FC1AAE24EB314700045920 /* Router.swift in Sources */,
 				A7E896DC24E58D390044CD4B /* AppDelegate.swift in Sources */,
@@ -435,6 +454,7 @@
 				A75D0EF724F802890009F00A /* FileManegerExtension.swift in Sources */,
 				A70AE99824EECDE800F8EFB9 /* FindScreenController.swift in Sources */,
 				731DC4B024F369B800B99DC0 /* DetailPlaceFindController.swift in Sources */,
+				A73D0F28253F3CEE0098A631 /* Place+CoreDataProperties.swift in Sources */,
 				A7E896DE24E58D390044CD4B /* SceneDelegate.swift in Sources */,
 				73FBBEFA24EB8C6A00F221A2 /* TextPlaceModal.swift in Sources */,
 				73FBBF0724ED618400F221A2 /* ToGoScreenController.swift in Sources */,
@@ -519,6 +539,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -579,6 +600,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -767,6 +789,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A753EEA1253F2E8C005264E6 /* ModelPlaces.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A753EEA2253F2E8C005264E6 /* ModelPlaces.xcdatamodel */,
+			);
+			currentVersion = A753EEA2253F2E8C005264E6 /* ModelPlaces.xcdatamodel */;
+			path = ModelPlaces.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A7E896D024E58D390044CD4B /* Project object */;
 }
